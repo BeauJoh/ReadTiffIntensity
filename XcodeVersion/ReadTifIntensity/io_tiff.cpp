@@ -378,18 +378,26 @@ uint32 getImageSlicePitch(void){
     return _rowsPerStrip;
 };
 
+//Inline Nomalizes Data In Image
 uint16 * normalizeData(uint16* image){
     uint32 numberOfPixels = _imageWidth*_imageLength*_samplesPerPixel;
-    uint16 returnImage[numberOfPixels];
-    for (uint32 i; i<numberOfPixels; i++) {
-        returnImage[i] = image[i]/65536;
-        //if (i < 2000) {
-            printf("unnormalized %ith pixel is = %hu\n", i, *(image+i));
-            printf("normalized %ith pixel is = %hu\n\n\n", i, *(returnImage+i));
-        //}
+    for (uint32 i=0; i<numberOfPixels; i++) {
+#ifdef DEBUG
+        uint16 origPix = image[i];
+#endif
+
+        image[i]= image[i]/65536; // zeroes everthing ???
+                
+#ifdef DEBUG
+        if(origPix > 0 ){
+            printf("orig=%d norm=%d\n", origPix, image[i]);
+        }
+#endif
+
     }
     
-    uint16 * ptr = returnImage;
+    uint16 * ptr = image;
+    
     return ptr;
 };
 
