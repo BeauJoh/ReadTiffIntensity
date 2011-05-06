@@ -1,0 +1,236 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		3024E8251373E92A0077E31A /* io_png.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3024E8211373E92A0077E31A /* io_png.cpp */; };
+		3024E8261373E92A0077E31A /* io_tiff.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3024E8231373E92A0077E31A /* io_tiff.cpp */; };
+		3024E82C1373E9D60077E31A /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3024E82B1373E9D60077E31A /* main.cpp */; };
+		8B3B7C0F1369774400F7CC5B /* UnixImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B3B7C0E1369774400F7CC5B /* UnixImageIO.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		8BD8E1BD13695E660072EA08 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		3024E8211373E92A0077E31A /* io_png.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = io_png.cpp; path = Source/io_png.cpp; sourceTree = "<group>"; };
+		3024E8221373E92A0077E31A /* io_png.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = io_png.h; path = Source/io_png.h; sourceTree = "<group>"; };
+		3024E8231373E92A0077E31A /* io_tiff.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = io_tiff.cpp; path = Source/io_tiff.cpp; sourceTree = "<group>"; };
+		3024E8241373E92A0077E31A /* io_tiff.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = io_tiff.h; path = Source/io_tiff.h; sourceTree = "<group>"; };
+		3024E8291373E9A10077E31A /* ReadTiffIntensity.1 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.man; path = ReadTiffIntensity.1; sourceTree = "<group>"; };
+		3024E82B1373E9D60077E31A /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = main.cpp; path = Source/main.cpp; sourceTree = "<group>"; };
+		8B3B7C0E1369774400F7CC5B /* UnixImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UnixImageIO.framework; path = Library/Frameworks/UnixImageIO.framework; sourceTree = SDKROOT; };
+		8BD8E1BF13695E660072EA08 /* ReadTifIntensity */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = ReadTifIntensity; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		8BD8E1BC13695E660072EA08 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8B3B7C0F1369774400F7CC5B /* UnixImageIO.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		3024E81F1373E91A0077E31A /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				3024E82B1373E9D60077E31A /* main.cpp */,
+				3024E8211373E92A0077E31A /* io_png.cpp */,
+				3024E8221373E92A0077E31A /* io_png.h */,
+				3024E8231373E92A0077E31A /* io_tiff.cpp */,
+				3024E8241373E92A0077E31A /* io_tiff.h */,
+			);
+			name = Source;
+			sourceTree = "<group>";
+		};
+		3024E8271373E9A10077E31A /* ReadTiffIntensity */ = {
+			isa = PBXGroup;
+			children = (
+				3024E8291373E9A10077E31A /* ReadTiffIntensity.1 */,
+			);
+			path = ReadTiffIntensity;
+			sourceTree = "<group>";
+		};
+		8BD8E1B413695E660072EA08 = {
+			isa = PBXGroup;
+			children = (
+				3024E8271373E9A10077E31A /* ReadTiffIntensity */,
+				3024E81F1373E91A0077E31A /* Source */,
+				8BD8E1C013695E660072EA08 /* Products */,
+				8B3B7C0E1369774400F7CC5B /* UnixImageIO.framework */,
+			);
+			sourceTree = "<group>";
+		};
+		8BD8E1C013695E660072EA08 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				8BD8E1BF13695E660072EA08 /* ReadTifIntensity */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		8BD8E1BE13695E660072EA08 /* ReadTifIntensity */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8BD8E1C813695E660072EA08 /* Build configuration list for PBXNativeTarget "ReadTifIntensity" */;
+			buildPhases = (
+				8BD8E1BB13695E660072EA08 /* Sources */,
+				8BD8E1BC13695E660072EA08 /* Frameworks */,
+				8BD8E1BD13695E660072EA08 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ReadTifIntensity;
+			productName = ReadTifIntensity;
+			productReference = 8BD8E1BF13695E660072EA08 /* ReadTifIntensity */;
+			productType = "com.apple.product-type.tool";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		8BD8E1B613695E660072EA08 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				ORGANIZATIONNAME = "University Of New England";
+			};
+			buildConfigurationList = 8BD8E1B913695E660072EA08 /* Build configuration list for PBXProject "ReadTifIntensity" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 8BD8E1B413695E660072EA08;
+			productRefGroup = 8BD8E1C013695E660072EA08 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				8BD8E1BE13695E660072EA08 /* ReadTifIntensity */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		8BD8E1BB13695E660072EA08 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3024E8251373E92A0077E31A /* io_png.cpp in Sources */,
+				3024E8261373E92A0077E31A /* io_tiff.cpp in Sources */,
+				3024E82C1373E9D60077E31A /* main.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		8BD8E1C613695E660072EA08 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = DEBUG;
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.6;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		8BD8E1C713695E660072EA08 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.6;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		8BD8E1C913695E660072EA08 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+				);
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_VERSION = 4.2;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		8BD8E1CA13695E660072EA08 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+				);
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_VERSION = 4.2;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		8BD8E1B913695E660072EA08 /* Build configuration list for PBXProject "ReadTifIntensity" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8BD8E1C613695E660072EA08 /* Debug */,
+				8BD8E1C713695E660072EA08 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8BD8E1C813695E660072EA08 /* Build configuration list for PBXNativeTarget "ReadTifIntensity" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8BD8E1C913695E660072EA08 /* Debug */,
+				8BD8E1CA13695E660072EA08 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 8BD8E1B613695E660072EA08 /* Project object */;
+}
