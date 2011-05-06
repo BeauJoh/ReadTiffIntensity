@@ -23,31 +23,12 @@ int main(int argc, char **argv)
 
     //unsigned char* img = read_tiff_rgb_8_bit_from_file((char*)"MARBLES.TIF");
     //write_tiff_rgb_8_bit_from_file((char*)"MARBLESOUT.TIF", img);
-    
-    //16 bit image
-    //uint16 * img = testIn((char*)"Tritsmfin-s1051.tif");
-    
-    //8 bit image
-    //uint16 * img = read_tiff_strip_file((char*)"GMARBLES.TIF");
-    //uint16 * img = testIn((char*)"GMARBLES.TIF");
-    //uint16 * img = testIn((char*)"MARBLES.TIF");
-    uint16 * img = testIn((char*)"Tritsmfin-s1051.tif");
-
-
-    uint16 * normalizedTiff = normalizeData(img);
-    
-    //uint16 * unnormalizedTiff = unNormalizeData(normalizedTiff);
-    
-    testOut((char*)"Tritsmfin-s1051OUT.tif", normalizedTiff);
-    //write_tiff_strip_file((char*)"Tritsmfin-s1051OUT.tif", unnormalizedTiff);
-    
-    //8 bit image
-    //uint16 * img = read_tiff_strip_file((char*)"GMARBLES.TIF");
+    uint16 * img = read_tiff_strip_file((char*)"GMARBLES.TIF");
 
     //uint16* normalizedImg = normalizeData(img);
     //unsigned short* unnormalizedImg = unNormalizeData(normalizedImg);
     
-    //write_tiff_strip_file((char*)"Tritsmfin-s1051OUT.tif", img);
+    write_tiff_strip_file((char*)"GMARBLESOUT.TIF", img);
     
     return 0;
 }
