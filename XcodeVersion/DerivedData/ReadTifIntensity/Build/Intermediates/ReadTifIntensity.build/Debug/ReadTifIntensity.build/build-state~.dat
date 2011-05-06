@@ -1,62 +1,0 @@
-TReadTifIntensity
-v3
-r1
-cCheck dependencies
-cCompileC DerivedData/ReadTifIntensity/Build/Intermediates/ReadTifIntensity.build/Debug/ReadTifIntensity.build/Objects-normal/x86_64/main.o /Users/beau/Documents/FourthYear/miscProjects/ReadTifIntensity/ReadTifIntensity/main.cpp normal x86_64 c++ com.apple.compilers.llvm.clang.1_0.compiler
-
-N/Developer/SDKs/MacOSX10.6.sdk
-c000000004D9A5AF800000000000000EE
-t1301961464
-s238
-
-N/Developer/SDKs/MacOSX10.6.sdk/usr/local/lib/libtiff.dylib
-c000000004D7F381E0000000000063CA4
-t1300183070
-s408740
-
-N/Users/beau/Documents/FourthYear/miscProjects/ReadTifIntensity/DerivedData/ReadTifIntensity/Build/Intermediates/ReadTifIntensity.build/Debug/ReadTifIntensity.build/Objects-normal/x86_64/ReadTifIntensity.LinkFileList
-c000000004DB9279100000000000000C1
-t1303979921
-s193
-
-N/Users/beau/Documents/FourthYear/miscProjects/ReadTifIntensity/DerivedData/ReadTifIntensity/Build/Intermediates/ReadTifIntensity.build/Debug/ReadTifIntensity.build/Objects-normal/x86_64/main.o
-t2
-s0
-
-N/Users/beau/Documents/FourthYear/miscProjects/ReadTifIntensity/DerivedData/ReadTifIntensity/Build/Products/Debug/ReadTifIntensity
-t2
-s0
-
-N/Users/beau/Documents/FourthYear/miscProjects/ReadTifIntensity/ReadTifIntensity/main.cpp
-c000000004DB92790000000000000013E
-t1303979920
-s318
-i<iostream>
-
-CBuild AST from /Users/beau/Documents/FourthYear/miscProjects/ReadTifIntensity/ReadTifIntensity/main.cpp
-r0
-
-CCheck dependencies
-r0
-lSLF03#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection18"Check dependencies0a2b8d115f69b341^da3cda115f69b341^---0#1#0#--18"Check dependencies
-
-CCompileC DerivedData/ReadTifIntensity/Build/Intermediates/ReadTifIntensity.build/Debug/ReadTifIntensity.build/Objects-normal/x86_64/main.o /Users/beau/Documents/FourthYear/miscProjects/ReadTifIntensity/ReadTifIntensity/main.cpp normal x86_64 c++ com.apple.compilers.llvm.clang.1_0.compiler
-s325672721.853398
-e325672724.157827
-r0
-xCompileC
-xDerivedData/ReadTifIntensity/Build/Intermediates/ReadTifIntensity.build/Debug/ReadTifIntensity.build/Objects-normal/x86_64/main.o
-x/Users/beau/Documents/FourthYear/miscProjects/ReadTifIntensity/ReadTifIntensity/main.cpp
-xnormal
-xx86_64
-xc++
-xcom.apple.compilers.llvm.clang.1_0.compiler
-o/Users/beau/Documents/FourthYear/miscProjects/ReadTifIntensity/ReadTifIntensity/main.cpp:10:10: fatal error: 'tiffio.h' file not found [1]
-o #include "tiffio.h"
-o          ^
-o1 error generated.
-lSLF03#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection96"Compile /Users/beau/Documents/FourthYear/miscProjects/ReadTifIntensity/ReadTifIntensity/main.cppbbd0dc115f69b341^a8012b145f69b341^-191"/Users/beau/Documents/FourthYear/miscProjects/ReadTifIntensity/ReadTifIntensity/main.cpp:10:10: fatal error: 'tiffio.h' file not found [1] #include "tiffio.h"          ^1 error generated.1(21%IDEActivityLogMessage2@25"'tiffio.h' file not found-325672724#0#139#-2#-23%DVTTextDocumentLocation3@104"file://localhost/Users/beau/Documents/FourthYear/miscProjects/ReadTifIntensity/ReadTifIntensity/main.cpp0000000000000000^9#9#9#9#18446744073709551615#0#29"Lexical or Preprocessor Issue--0#0#0#-19%DVTDocumentLocation4@104"file://localhost/Users/beau/Documents/FourthYear/miscProjects/ReadTifIntensity/ReadTifIntensity/main.cpp0000000000000000^2498"CompileC DerivedData/ReadTifIntensity/Build/Intermediates/ReadTifIntensity.build/Debug/ReadTifIntensity.build/Objects-normal/x86_64/main.o ReadTifIntensity/main.cpp normal x86_64 c++ com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/beau/Documents/FourthYear/miscProjects/ReadTifIntensity    setenv LANG en_US.US-ASCII    /Developer/usr/bin/clang -x c++ -arch x86_64 -fmessage-length=0 -fdiagnostics-print-source-range-info -fdiagnostics-show-category=id -fdiagnostics-parseable-fixits -Wno-trigraphs -fpascal-strings -O0 -Wreturn-type -Wparentheses -Wswitch -Wno-unused-parameter -Wunused-variable -Wunused-value -Wshorten-64-to-32 -DDEBUG -isysroot /Developer/SDKs/MacOSX10.6.sdk -fasm-blocks -mmacosx-version-min=10.6 -gdwarf-2 -fvisibility-inlines-hidden -iquote /Users/beau/Documents/FourthYear/miscProjects/ReadTifIntensity/DerivedData/ReadTifIntensity/Build/Intermediates/ReadTifIntensity.build/Debug/ReadTifIntensity.build/ReadTifIntensity-generated-files.hmap -I/Users/beau/Documents/FourthYear/miscProjects/ReadTifIntensity/DerivedData/ReadTifIntensity/Build/Intermediates/ReadTifIntensity.build/Debug/ReadTifIntensity.build/ReadTifIntensity-own-target-headers.hmap -I/Users/beau/Documents/FourthYear/miscProjects/ReadTifIntensity/DerivedData/ReadTifIntensity/Build/Intermediates/ReadTifIntensity.build/Debug/ReadTifIntensity.build/ReadTifIntensity-all-target-headers.hmap -iquote /Users/beau/Documents/FourthYear/miscProjects/ReadTifIntensity/DerivedData/ReadTifIntensity/Build/Intermediates/ReadTifIntensity.build/Debug/ReadTifIntensity.build/ReadTifIntensity-project-headers.hmap -I/Users/beau/Documents/FourthYear/miscProjects/ReadTifIntensity/DerivedData/ReadTifIntensity/Build/Products/Debug/include -I/Users/beau/Documents/FourthYear/miscProjects/ReadTifIntensity/DerivedData/ReadTifIntensity/Build/Intermediates/ReadTifIntensity.build/Debug/ReadTifIntensity.build/DerivedSources/x86_64 -I/Users/beau/Documents/FourthYear/miscProjects/ReadTifIntensity/DerivedData/ReadTifIntensity/Build/Intermediates/ReadTifIntensity.build/Debug/ReadTifIntensity.build/DerivedSources -F/Users/beau/Documents/FourthYear/miscProjects/ReadTifIntensity/DerivedData/ReadTifIntensity/Build/Products/Debug -c /Users/beau/Documents/FourthYear/miscProjects/ReadTifIntensity/ReadTifIntensity/main.cpp -o /Users/beau/Documents/FourthYear/miscProjects/ReadTifIntensity/DerivedData/ReadTifIntensity/Build/Intermediates/ReadTifIntensity.build/Debug/ReadTifIntensity.build/Objects-normal/x86_64/main.o
-
-CLd /Users/beau/Documents/FourthYear/miscProjects/ReadTifIntensity/DerivedData/ReadTifIntensity/Build/Products/Debug/ReadTifIntensity normal x86_64
-r0
-

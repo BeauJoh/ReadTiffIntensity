@@ -499,6 +499,8 @@ uint16 * normalizeData(uint16* image){
     
     for (uint32 i=0; i< _imageLength*_linebytes; i++) {
         returnImage[i] = (image[i]/(2^_bitsPerSample));
+        
+#ifdef DEBUG
         if (returnImage[i] != 0) {
             printf("new normalized image is  %hu from %hu @ %d\n", returnImage[i], image[i], i);
         }
@@ -516,6 +518,12 @@ uint16 * unNormalizeData(uint16* image){
     uint16 * returnImage = new uint16[numberOfPixels];
     for (uint32 i=0; i<numberOfPixels; i++) {
         returnImage[i] = image[i]*(2^_bitsPerSample);
+        
+#ifdef DEBUG
+        if (returnImage[i] != 0) {
+            printf("new unnormalized image is  %hu from %hu @ %d\n", returnImage[i], image[i], i);
+        }
+#endif
     }
     
     delete image;
