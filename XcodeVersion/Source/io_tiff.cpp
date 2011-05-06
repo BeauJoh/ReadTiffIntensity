@@ -514,9 +514,9 @@ uint16 * normalizeData(uint16* image){
 
 
 uint16 * unNormalizeData(uint16* image){
-    uint32 numberOfPixels = _imageWidth*_imageLength*_samplesPerPixel;
-    uint16 * returnImage = new uint16[numberOfPixels];
-    for (uint32 i=0; i<numberOfPixels; i++) {
+    uint16 * returnImage = new uint16[_linebytes *_imageLength];
+
+    for (uint32 i=0; i<_imageLength*_linebytes; i++) {
         returnImage[i] = image[i]*(2^_bitsPerSample);
         
 #ifdef DEBUG

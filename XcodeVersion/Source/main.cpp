@@ -12,7 +12,7 @@ int main(int argc, char **argv)
     
     //uint16 * unnormalizedTiff = unNormalizeData(normalizedTiff);
     
-    write_tiff((char*)"GMARBLESNORMtif", normalizedTiff);
+    write_tiff((char*)"GMARBLESNORM.tif", normalizedTiff);
     //write_tiff_strip_file((char*)"Tritsmfin-s1051OUT.tif", unnormalizedTiff);
     
     //8 bit image
