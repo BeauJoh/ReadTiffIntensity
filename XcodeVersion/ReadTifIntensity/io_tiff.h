@@ -20,8 +20,11 @@ unsigned char * read_tiff_rgb_8_bit_from_file(char* fileName);
 void write_tiff_rgb_8_bit_from_file(char* fileName, unsigned char * image);
 
     //only grayscale 16 bit (2Byte)
-unsigned short * read_tiff_strip_file(char* fileName);
-void write_tiff_strip_file(char* fileName, unsigned short * image);
+uint16 * read_tiff_strip_file(char* fileName);
+void write_tiff_strip_file(char* fileName, uint16 * image);
+
+uint16 * testIn(char*fileName);
+void testOut(char* fileName, uint16 * image);
 
 uint32 getImageLength(void);
 uint32 getImageWidth(void);
@@ -34,7 +37,7 @@ uint32 getRowsPerStrip(void);
 uint32 getImageRowPitch(void);
 uint32 getImageSlicePitch(void);
 
-unsigned short * normalizeData(unsigned short* image);
-unsigned short * unNormalizeData(unsigned short* image);
+uint16 * normalizeData(uint16* image);
+uint16 * unNormalizeData(uint16* image);
 
 #endif

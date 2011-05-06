@@ -9,8 +9,116 @@
 #include "io_tiff.h"
 
 
-uint32 _imageLength, _imageWidth, _imageOrientation, _config, _bitsPerSample, _samplesPerPixel, _photometric, _rowsPerStrip;
+uint32 _imageLength, _imageWidth, _imageOrientation, _config, _bitsPerSample, _samplesPerPixel, _photometric, _rowsPerStrip, _bytesPerPixel, _linebytes;
 uint64 _tiffScanLineSize;
+
+uint16 * testIn(char*fileName){
+    
+    TIFF * tif = TIFFOpen((char *)fileName,"r");
+    
+    
+    TIFFGetField(tif, TIFFTAG_IMAGELENGTH, &_imageLength);
+    TIFFGetField(tif, TIFFTAG_PLANARCONFIG, &_config);
+    TIFFGetField(tif, TIFFTAG_IMAGEWIDTH, &_imageWidth);
+    TIFFGetField(tif, TIFFTAG_ORIENTATION, &_imageOrientation);
+    TIFFGetField(tif, TIFFTAG_BITSPERSAMPLE, &_bitsPerSample);
+    TIFFGetField(tif, TIFFTAG_SAMPLESPERPIXEL, &_samplesPerPixel);
+    TIFFGetField(tif, TIFFTAG_PHOTOMETRIC, &_photometric);
+    TIFFGetField(tif, TIFFTAG_ROWSPERSTRIP, &_rowsPerStrip);    
+    
+    _bytesPerPixel = _bitsPerSample/8;
+
+    if (_imageOrientation == 0) {
+        _imageOrientation = ORIENTATION_TOPLEFT;
+    }
+    
+    //size of each row
+    _linebytes = _samplesPerPixel * _imageWidth * _bytesPerPixel;
+    
+    uint16* image = new uint16[_linebytes *_imageLength];
+
+    uint16* rowbuff = NULL;
+    
+    rowbuff = (uint16*) _TIFFmalloc(_samplesPerPixel * _bytesPerPixel * _imageWidth); 
+    for(int row=0;row <_imageLength;row++)
+    {
+        if (TIFFReadScanline(tif, (void*)rowbuff, row, 0) < 0){
+            printf("oh no! Something bad happened at reading the image %s to file\n", fileName);
+            break;  
+        }
+        
+            //else we get a valid row buffer, and we process it to the return image
+        for(int col=0; col<_imageWidth;col++){
+            image[(row*_linebytes)+col] = rowbuff[col];
+        }
+    }
+    _TIFFfree(rowbuff);
+    
+    //close the file handle and done! :)
+    TIFFClose(tif);
+    
+    return image;
+}
+
+
+void testOut(char* fileName, uint16 * image){
+    
+    //open tif file handle
+    TIFF * tif = TIFFOpen(fileName, "w");
+    
+    //if the file opened successfully
+    if(tif){
+        
+        // local variables
+        uint16* rowbuff = NULL;
+        
+        // set tag file format tags in the header
+        TIFFSetField(tif, TIFFTAG_IMAGELENGTH, _imageLength);
+        TIFFSetField(tif, TIFFTAG_IMAGEWIDTH, _imageWidth);
+        TIFFSetField(tif, TIFFTAG_PLANARCONFIG, _config);
+        TIFFSetField(tif, TIFFTAG_BITSPERSAMPLE, _bitsPerSample);
+        TIFFSetField(tif, TIFFTAG_SAMPLESPERPIXEL, _samplesPerPixel);
+        TIFFSetField(tif, TIFFTAG_ORIENTATION, _imageOrientation);
+        TIFFSetField(tif, TIFFTAG_PHOTOMETRIC, _photometric);
+        TIFFSetField(tif, TIFFTAG_ROWSPERSTRIP, _rowsPerStrip);
+        
+        
+        // allocate memory for the buffer for writing, 
+        //      hint:   it has to be big enough for a strip (1 row at a time)
+        //              as we process row by row
+        rowbuff = (uint16*) _TIFFmalloc(_linebytes); 
+        
+        for (uint32 row = 0; row < _imageLength; row++){
+            // Use string.h's ability to copy memory locations directly,
+            // this little baby copies entire row of image array and puts 
+            // it into the buffer for writing
+            
+            for(int col=0; col<_imageWidth;col++){
+                    rowbuff[col] = image[(row*_linebytes) + col];
+            }
+            
+            //then write the row, out to file
+            //if it failed notify the user of something bad
+            if (TIFFWriteScanline(tif, rowbuff, row,0) < 0){
+                printf("oh no! Something bad happened at writing the image %s to file\n", fileName);
+                break;
+            }
+        }
+        
+        //release the buffer
+        _TIFFfree(rowbuff);
+        
+        //close the file handle and done! :)
+        TIFFClose(tif);
+        
+        delete image;
+        return;
+    }
+    
+    printf("Whops... The image %s dosn't exit to write", fileName);
+    return;
+
+}
 
 unsigned char * read_tiff_rgb_8_bit_from_file(char* fileName)
 {
@@ -214,9 +322,11 @@ uint16 * read_tiff_strip_file(char* fileName)
         if (_imageOrientation == 0) {
             _imageOrientation = ORIENTATION_TOPLEFT;
         }
+        uint32 _bytesPerPixel = _bitsPerSample/8;
+
         
             // size of each row
-        tsize_t linebytes = _samplesPerPixel * _imageWidth;
+        tsize_t linebytes = _samplesPerPixel * _imageWidth * _bytesPerPixel;
         
         
             // allocate memory for the buffer for reading, 
@@ -224,9 +334,8 @@ uint16 * read_tiff_strip_file(char* fileName)
             //              as we process row by row
         buf = _TIFFmalloc(linebytes);
         
-        
             // create the correct amount of memory for the image 
-        uint16 image [_imageWidth*_imageLength*_samplesPerPixel];
+        uint16 image [_imageLength*linebytes];
         
             // if its a grayscale image
         if (_config == PLANARCONFIG_CONTIG) {
@@ -254,13 +363,18 @@ uint16 * read_tiff_strip_file(char* fileName)
             for (s = 0; s < _samplesPerPixel; s++){
                     // traverse each row
                 for (row = 0; row < _imageLength; row++){
-                        // read that line of components (r,g,b or alpha ect)
-                    TIFFReadScanline(tif, buf, row, s);
-                        // store that buffer row into the image array
-                    memcpy(&image[row*_imageWidth*s], buf, linebytes);
+                            // read that line of components (r,g,b or alpha ect)
+                        TIFFReadScanline(tif, buf, row, s);
+                            // store that buffer row into the image array
+                        memcpy(&image[(row+s)*_imageWidth], buf, linebytes);
                 }
             }
         }
+        
+        printf("Samples per pixel = %i\n", _samplesPerPixel);
+        printf("Bytes per pixel = %i\n", _bytesPerPixel);
+
+
 
             //release the buffer
         _TIFFfree(buf);
@@ -380,34 +494,28 @@ uint32 getImageSlicePitch(void){
 
 //Inline Nomalizes Data In Image
 uint16 * normalizeData(uint16* image){
-    uint32 numberOfPixels = _imageWidth*_imageLength*_samplesPerPixel;
-    for (uint32 i=0; i<numberOfPixels; i++) {
-#ifdef DEBUG
-        uint16 origPix = image[i];
-#endif
 
-        image[i]= image[i]/65536; // zeroes everthing ???
-                
-#ifdef DEBUG
-        if(origPix > 0 ){
-            printf("orig=%d norm=%d\n", origPix, image[i]);
+    uint16 * returnImage = new uint16[_linebytes *_imageLength];
+    
+    for (uint32 i=0; i< _imageLength*_linebytes; i++) {
+        returnImage[i] = (image[i]/(2^16));
+        if (returnImage[i] != 0) {
+            printf("new normalized image is  %hu from %hu @ %d\n", returnImage[i], image[i], i);
         }
-#endif
-
     }
+
+    delete image;
     
-    uint16 * ptr = image;
-    
-    return ptr;
+    return returnImage;
 };
+
 
 uint16 * unNormalizeData(uint16* image){
     uint32 numberOfPixels = _imageWidth*_imageLength*_samplesPerPixel;
-    uint16 returnImage[numberOfPixels];
-    for (uint32 i; i<numberOfPixels; i++) {
+    uint16 * returnImage = new uint16[numberOfPixels];
+    for (uint32 i=0; i<numberOfPixels; i++) {
         returnImage[i] = image[i]*65536;
     }
     
-    uint16 * ptr = returnImage;
-    return ptr;
+    
 };
