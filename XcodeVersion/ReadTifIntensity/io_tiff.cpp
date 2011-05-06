@@ -12,7 +12,7 @@
 uint32 _imageLength, _imageWidth, _imageOrientation, _config, _bitsPerSample, _samplesPerPixel, _photometric, _rowsPerStrip, _bytesPerPixel, _linebytes;
 uint64 _tiffScanLineSize;
 
-uint16 * testIn(char*fileName){
+uint16 * read_tiff(char*fileName){
     
     TIFF * tif = TIFFOpen((char *)fileName,"r");
     
@@ -61,7 +61,7 @@ uint16 * testIn(char*fileName){
 }
 
 
-void testOut(char* fileName, uint16 * image){
+void write_tiff(char* fileName, uint16 * image){
     
     //open tif file handle
     TIFF * tif = TIFFOpen(fileName, "w");
@@ -497,7 +497,7 @@ uint16 * normalizeData(uint16* image){
     uint16 * returnImage = new uint16[_linebytes *_imageLength];
     
     for (uint32 i=0; i< _imageLength*_linebytes; i++) {
-        returnImage[i] = (image[i]/(2^16));
+        returnImage[i] = (image[i]/(2^_bitsPerSample));
         if (returnImage[i] != 0) {
             printf("new normalized image is  %hu from %hu @ %d\n", returnImage[i], image[i], i);
         }
@@ -513,7 +513,7 @@ uint16 * unNormalizeData(uint16* image){
     uint32 numberOfPixels = _imageWidth*_imageLength*_samplesPerPixel;
     uint16 * returnImage = new uint16[numberOfPixels];
     for (uint32 i=0; i<numberOfPixels; i++) {
-        returnImage[i] = image[i]*65536;
+        returnImage[i] = image[i]*(2^_bitsPerSample);
     }
     
     

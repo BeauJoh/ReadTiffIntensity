@@ -15,16 +15,16 @@
 #include <string.h>
 
 
-    //logical error in reading / writing in 8 bit
-unsigned char * read_tiff_rgb_8_bit_from_file(char* fileName);
-void write_tiff_rgb_8_bit_from_file(char* fileName, unsigned char * image);
+//    //logical error in reading / writing in 8 bit
+//unsigned char * read_tiff_rgb_8_bit_from_file(char* fileName);
+//void write_tiff_rgb_8_bit_from_file(char* fileName, unsigned char * image);
+//
+//    //only grayscale 16 bit (2Byte)
+//uint16 * read_tiff_strip_file(char* fileName);
+//void write_tiff_strip_file(char* fileName, uint16 * image);
 
-    //only grayscale 16 bit (2Byte)
-uint16 * read_tiff_strip_file(char* fileName);
-void write_tiff_strip_file(char* fileName, uint16 * image);
-
-uint16 * testIn(char*fileName);
-void testOut(char* fileName, uint16 * image);
+uint16 * read_tiff(char*fileName);
+void write_tiff(char* fileName, uint16 * image);
 
 uint32 getImageLength(void);
 uint32 getImageWidth(void);
