@@ -31,14 +31,14 @@ int main(int argc, char **argv)
     //uint16 * img = read_tiff_strip_file((char*)"GMARBLES.TIF");
     //uint16 * img = testIn((char*)"GMARBLES.TIF");
     //uint16 * img = testIn((char*)"MARBLES.TIF");
-    uint16 * img = testIn((char*)"Tritsmfin-s1051.tif");
+    uint16 * img = testIn((char*)"GMARBLESNORM.TIF");
 
 
     uint16 * normalizedTiff = normalizeData(img);
     
-    //uint16 * unnormalizedTiff = unNormalizeData(normalizedTiff);
+    uint16 * unnormalizedTiff = unNormalizeData(normalizedTiff);
     
-    testOut((char*)"Tritsmfin-s1051OUT.tif", normalizedTiff);
+    testOut((char*)"GMARBLESNORM.TIF", unnormalizedTiff);
     //write_tiff_strip_file((char*)"Tritsmfin-s1051OUT.tif", unnormalizedTiff);
     
     //8 bit image
