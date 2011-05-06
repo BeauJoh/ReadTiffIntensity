@@ -5,14 +5,14 @@
 int main(int argc, char **argv)
 {
 
-    uint16 * img = read_tiff((char*)"Tritsmfin-s1051.tif");
+    uint16 * img = read_tiff((char*)"GMARBLES.tif");
 
 
     uint16 * normalizedTiff = normalizeData(img);
     
     //uint16 * unnormalizedTiff = unNormalizeData(normalizedTiff);
     
-    write_tiff((char*)"Tritsmfin-s1051OUT.tif", normalizedTiff);
+    write_tiff((char*)"GMARBLESNORM.tif", normalizedTiff);
     //write_tiff_strip_file((char*)"Tritsmfin-s1051OUT.tif", unnormalizedTiff);
     
     //8 bit image
