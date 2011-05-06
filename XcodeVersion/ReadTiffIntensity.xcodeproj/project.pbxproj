@@ -7,14 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		8B3B7C0F1369774400F7CC5B /* UnixImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B3B7C0E1369774400F7CC5B /* UnixImageIO.framework */; };
-		8BFBE6C31373DD4300386CF9 /* io_png.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8BFBE6BD1373DD4300386CF9 /* io_png.cpp */; };
-		8BFBE6C41373DD4300386CF9 /* io_tiff.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8BFBE6BF1373DD4300386CF9 /* io_tiff.cpp */; };
-		8BFBE6C51373DD4300386CF9 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8BFBE6C11373DD4300386CF9 /* main.cpp */; };
+		8BFBE6D71373DF4D00386CF9 /* io_tiff.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8BFBE6BF1373DD4300386CF9 /* io_tiff.cpp */; };
+		8BFBE6D81373DF5000386CF9 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8BFBE6C11373DD4300386CF9 /* main.cpp */; };
+		8BFBE6D91373DF5500386CF9 /* io_png.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8BFBE6BD1373DD4300386CF9 /* io_png.cpp */; };
+		8BFBE6DA1373DF5D00386CF9 /* UnixImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B3B7C0E1369774400F7CC5B /* UnixImageIO.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		8BD8E1BD13695E660072EA08 /* CopyFiles */ = {
+		8BFBE6CC1373DF2600386CF9 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = /usr/share/man/man1/;
@@ -27,20 +27,22 @@
 
 /* Begin PBXFileReference section */
 		8B3B7C0E1369774400F7CC5B /* UnixImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UnixImageIO.framework; path = Library/Frameworks/UnixImageIO.framework; sourceTree = SDKROOT; };
-		8BD8E1BF13695E660072EA08 /* ReadTifIntensity */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; name = ReadTifIntensity; path = /Users/beau/Documents/FourthYear/miscProjects/ReadTiffIntensity/XcodeVersion/build/Release/ReadTifIntensity; sourceTree = "<absolute>"; };
 		8BFBE6BD1373DD4300386CF9 /* io_png.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = io_png.cpp; sourceTree = "<group>"; };
 		8BFBE6BE1373DD4300386CF9 /* io_png.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = io_png.h; sourceTree = "<group>"; };
 		8BFBE6BF1373DD4300386CF9 /* io_tiff.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = io_tiff.cpp; sourceTree = "<group>"; };
 		8BFBE6C01373DD4300386CF9 /* io_tiff.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = io_tiff.h; sourceTree = "<group>"; };
 		8BFBE6C11373DD4300386CF9 /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		8BFBE6CE1373DF2600386CF9 /* ReadTiffIntensity */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = ReadTiffIntensity; sourceTree = BUILT_PRODUCTS_DIR; };
+		8BFBE6D11373DF2600386CF9 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		8BFBE6D31373DF2600386CF9 /* ReadTiffIntensity.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = ReadTiffIntensity.1; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		8BD8E1BC13695E660072EA08 /* Frameworks */ = {
+		8BFBE6CB1373DF2600386CF9 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8B3B7C0F1369774400F7CC5B /* UnixImageIO.framework in Frameworks */,
+				8BFBE6DA1373DF5D00386CF9 /* UnixImageIO.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -50,6 +52,7 @@
 		8BD8E1B413695E660072EA08 = {
 			isa = PBXGroup;
 			children = (
+				8BFBE6D01373DF2600386CF9 /* ReadTiffIntensity */,
 				8BFBE6C71373DD6300386CF9 /* Frameworks */,
 				8BFBE6BC1373DD4300386CF9 /* Source */,
 				8BD8E1C013695E660072EA08 /* Products */,
@@ -59,6 +62,7 @@
 		8BD8E1C013695E660072EA08 /* Products */ = {
 			isa = PBXGroup;
 			children = (
+				8BFBE6CE1373DF2600386CF9 /* ReadTiffIntensity */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -67,10 +71,10 @@
 			isa = PBXGroup;
 			children = (
 				8BFBE6BD1373DD4300386CF9 /* io_png.cpp */,
-				8BFBE6BE1373DD4300386CF9 /* io_png.h */,
 				8BFBE6BF1373DD4300386CF9 /* io_tiff.cpp */,
-				8BFBE6C01373DD4300386CF9 /* io_tiff.h */,
 				8BFBE6C11373DD4300386CF9 /* main.cpp */,
+				8BFBE6BE1373DD4300386CF9 /* io_png.h */,
+				8BFBE6C01373DD4300386CF9 /* io_tiff.h */,
 			);
 			path = Source;
 			sourceTree = "<group>";
@@ -83,24 +87,33 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		8BFBE6D01373DF2600386CF9 /* ReadTiffIntensity */ = {
+			isa = PBXGroup;
+			children = (
+				8BFBE6D11373DF2600386CF9 /* main.cpp */,
+				8BFBE6D31373DF2600386CF9 /* ReadTiffIntensity.1 */,
+			);
+			path = ReadTiffIntensity;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		8BD8E1BE13695E660072EA08 /* ReadTiffIntensity */ = {
+		8BFBE6CD1373DF2600386CF9 /* ReadTiffIntensity */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 8BD8E1C813695E660072EA08 /* Build configuration list for PBXNativeTarget "ReadTiffIntensity" */;
+			buildConfigurationList = 8BFBE6D41373DF2600386CF9 /* Build configuration list for PBXNativeTarget "ReadTiffIntensity" */;
 			buildPhases = (
-				8BD8E1BB13695E660072EA08 /* Sources */,
-				8BD8E1BC13695E660072EA08 /* Frameworks */,
-				8BD8E1BD13695E660072EA08 /* CopyFiles */,
+				8BFBE6CA1373DF2600386CF9 /* Sources */,
+				8BFBE6CB1373DF2600386CF9 /* Frameworks */,
+				8BFBE6CC1373DF2600386CF9 /* CopyFiles */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = ReadTiffIntensity;
-			productName = ReadTifIntensity;
-			productReference = 8BD8E1BF13695E660072EA08 /* ReadTifIntensity */;
+			productName = ReadTiffIntensity;
+			productReference = 8BFBE6CE1373DF2600386CF9 /* ReadTiffIntensity */;
 			productType = "com.apple.product-type.tool";
 		};
 /* End PBXNativeTarget section */
@@ -123,19 +136,19 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				8BD8E1BE13695E660072EA08 /* ReadTiffIntensity */,
+				8BFBE6CD1373DF2600386CF9 /* ReadTiffIntensity */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXSourcesBuildPhase section */
-		8BD8E1BB13695E660072EA08 /* Sources */ = {
+		8BFBE6CA1373DF2600386CF9 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8BFBE6C31373DD4300386CF9 /* io_png.cpp in Sources */,
-				8BFBE6C41373DD4300386CF9 /* io_tiff.cpp in Sources */,
-				8BFBE6C51373DD4300386CF9 /* main.cpp in Sources */,
+				8BFBE6D71373DF4D00386CF9 /* io_tiff.cpp in Sources */,
+				8BFBE6D81373DF5000386CF9 /* main.cpp in Sources */,
+				8BFBE6D91373DF5500386CF9 /* io_png.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -174,34 +187,24 @@
 			};
 			name = Release;
 		};
-		8BD8E1C913695E660072EA08 /* Debug */ = {
+		8BFBE6D51373DF2600386CF9 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				COPY_PHASE_STRIP = NO;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"$(SRCROOT)\"",
-				);
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
-				GCC_VERSION = 4.2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
 		};
-		8BD8E1CA13695E660072EA08 /* Release */ = {
+		8BFBE6D61373DF2600386CF9 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				COPY_PHASE_STRIP = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"$(SRCROOT)\"",
-				);
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
-				GCC_VERSION = 4.2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -218,14 +221,13 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		8BD8E1C813695E660072EA08 /* Build configuration list for PBXNativeTarget "ReadTiffIntensity" */ = {
+		8BFBE6D41373DF2600386CF9 /* Build configuration list for PBXNativeTarget "ReadTiffIntensity" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				8BD8E1C913695E660072EA08 /* Debug */,
-				8BD8E1CA13695E660072EA08 /* Release */,
+				8BFBE6D51373DF2600386CF9 /* Debug */,
+				8BFBE6D61373DF2600386CF9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
